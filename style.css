@@ -1,0 +1,60 @@
+/* Simple CSS to mimic the original Tailwind-like dark UI */
+:root{
+  --bg:#0b0b0c;
+  --surface:#0f1720;
+  --muted:#9aa3ad;
+  --primary:#06b6d4; /* teal-ish */
+  --accent:#8b5cf6;
+  --border:rgba(255,255,255,0.04);
+  --card:rgba(255,255,255,0.02);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Arial,Helvetica,sans-serif; background:linear-gradient(180deg,#071019 0%, #071217 100%); color:#e6eef6;
+}
+.topbar{height:56px; display:flex; align-items:center; gap:12px; padding:0 16px; background:rgba(0,0,0,0.6); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40}
+.icon-btn{background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#000;font-weight:700}
+h1{margin:0;font-size:18px}
+h1 .primary{color:var(--primary)}
+.app{display:flex;min-height:calc(100vh - 56px);}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:30}
+.hidden{display:none}
+.sidebar{width:260px;background:#000;padding:20px;display:flex;flex-direction:column;gap:16px;height:calc(100vh - 56px);position:relative;z-index:35}
+.lg-hidden{display:none}
+@media(max-width:900px){.sidebar{position:fixed;left:0;top:56px;transform:translateX(-110%);transition:transform .25s ease;z-index:50}.sidebar.open{transform:translateX(0)}.lg-hidden{display:block}.hidden-sm{display:none}}
+.nav{display:flex;flex-direction:column;gap:8px}
+.nav-btn{background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;text-align:left;cursor:pointer}
+.playlist-box{flex:1;overflow:auto;background:var(--card);padding:8px;border-radius:8px}
+.playlist h3{font-size:12px;color:var(--muted);margin:0 0 8px 0}
+.playlist .item{padding:8px;border-radius:6px;display:block;background:transparent;color:var(--muted);border:0;width:100%;text-align:left;cursor:pointer}
+.playlist .item.active{background:linear-gradient(90deg,var(--primary),var(--accent));color:#000;font-weight:600}
+.main{flex:1;padding:24px;overflow:auto}
+.hero{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+.art{width:160px;height:160px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center}
+.art-inner{font-size:36px;color:#000}
+.hero-info{flex:1}
+.muted{color:var(--muted)}
+.actions{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.big-play{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#000;border:0;font-size:20px;cursor:pointer}
+.ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:8px;border-radius:8px;color:var(--muted);cursor:pointer}
+.song-list{display:flex;flex-direction:column;gap:8px}
+.song-row{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;padding:8px;border-radius:8px;cursor:pointer}
+.song-row:hover{background:rgba(255,255,255,0.02)}
+.song-row.active{background:rgba(6,182,212,0.12);color:var(--primary)}
+.footer-note{text-align:center;color:var(--muted);margin-top:24px}
+.player-bar{position:fixed;left:0;right:0;bottom:0;height:88px;background:rgba(0,0,0,0.85);display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--border);z-index:60}
+.player-left{display:flex;align-items:center;gap:10px;min-width:220px}
+.mini-art{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#000}
+.song-meta{min-width:0}
+.player-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px}
+.controls{display:flex;gap:8px;align-items:center}
+.play-circle{width:44px;height:44px;border-radius:50%;background:#e6eef6;color:#000;border:0;font-weight:700;cursor:pointer}
+.progress-row{display:flex;align-items:center;gap:8px;width:70%}
+.progress-row input[type=range]{flex:1}
+.player-right{display:flex;align-items:center;gap:8px;min-width:160px}
+.time{width:40px;text-align:center}
+.small{font-size:12px}
+.credit{text-align:center;margin-top:20px;color:var(--muted)}
